@@ -201,7 +201,8 @@ def detect_5k(url_video=None, path_model=None, path_ds=None, flag_save=False, fp
                 for box in outputs:
                     box = list(map(int, list(box)))
                     if class_name[box[5]] != 'person':
-                        count_without_mask += 1
+                        if class_name[box[5]] == 'wihtout_mask':
+                            count_without_mask += 1
                         # draw bounding box of with mask and without mask
                         frame, _ = draw_boxes(frame, box[:4], label=class_name[box[5]], scores=box[4])
                         continue

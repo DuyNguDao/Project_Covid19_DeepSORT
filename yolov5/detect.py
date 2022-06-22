@@ -84,13 +84,13 @@ class Y5Detect:
 
 def draw_boxes(image, boxes, label, scores):
 
-    if label == 'withmask' or label == 'person':
+    if label == 'with_mask' or label == 'person':
         color = (0, 255, 0)
     else:
         color = (0, 0, 255)
     xmin, ymin, xmax, ymax = boxes
     cv2.rectangle(image, (xmin, ymin), (xmax, ymax), color, 2)
-    cv2.putText(image, label + "-{:d}".format(scores), (xmin, ymin), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
+    # cv2.putText(image, label + "-{:d}".format(scores), (xmin, ymin), cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
     return image, boxes
 
 
